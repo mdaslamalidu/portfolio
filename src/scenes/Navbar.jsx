@@ -46,7 +46,6 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
               setSelectedPage={setSelectedPage}
             />
             <a className="border-2 border-gradient-rainblue px-4 py-2 hover:bg-gradient-rainblue" href="/Aslam's_Resume.pdf" download>Download Resume</a>
-            
           </div>
         ) : (
           <button
@@ -59,7 +58,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
 
         {/* MOBILE MENU POPUP */}
         {!isDesktop && isMenuToggled && (
-          <div className="fixed right-0 bottom-0 h-full bg-blue w-[300px]">
+          <div className="fixed right-0 bottom-0 h-full bg-[#0A1929] w-[300px]">
             {/* CLOSE ICON */}
             <div className="flex justify-end p-12">
               <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -68,23 +67,26 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
             </div>
 
             {/* MENU ITEMS */}
-            <div className="flex flex-col gap-10 ml-[33%] text-2xl text-deep-blue">
+            <div className="flex flex-col gap-10 ml-[33%] text-2xl text-white">
               <Link
+                className="text-white"
                 page="Home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
               <Link
+              className="text-white"
                 page="Projects"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
               <Link
+              className="text-white"
                 page="Contact"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
-               <a className="text-red" href="/Aslam's_Resume.pdf" download>Download Resume</a>
+               <a className="text-white" href="/Aslam's_Resume.pdf" download>Download Resume</a>
             </div>
           </div>
         )}

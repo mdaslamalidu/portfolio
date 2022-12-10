@@ -2,6 +2,7 @@ import SocialMediaIcons from "../components/SocialMediaIcons";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import Typewriter from "typewriter-effect";
 
 const Landing = ({ setSelectedPage }) => {
   const isAboveLarge = useMediaQuery("(min-width: 1060px)");
@@ -46,7 +47,16 @@ const Landing = ({ setSelectedPage }) => {
           </p>
 
           <p className="mt-5 mb-7 text-2xl text-center md:text-start z-[1]">
-           I AM A WEB DEVELOPER
+          
+           <Typewriter
+           className="inline"
+            options={{
+            strings: ["I'M A WEB DEVELOPER", "I'M A MERN STACK DEVELOPER", "I'M A FRONT END DEVELOPER"],
+            autoStart: true,
+            loop: true,
+            delay: 40, 
+            }}
+           />
           </p>
         </motion.div>
 
