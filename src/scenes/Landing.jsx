@@ -16,7 +16,7 @@ const Landing = ({ setSelectedPage }) => {
           >
             <img
               alt="profile"
-              className="hover:filter hover:saturate-200 transition duration-500 z-10 w-full h-[450px] max-w-[400px] md:max-w-[600px] -mt-12"
+              className="hover:filter hover:saturate-200 transition duration-500 z-10 w-full h-[508px] max-w-[400px] md:max-w-[600px] -mt-12"
               src="assets/profile.png"/>
           </div>
       </div>
@@ -34,18 +34,19 @@ const Landing = ({ setSelectedPage }) => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <p className="text-4xl font-playfair z-10 text-center md:text-start">
-            MD ASLAM {""}
-            <span
+          <p className="text-5xl  text-white xs:relative xs:font-semibold z-20 xs:before:content-brush
+              before:absolute before:-left-[25px] before:-top-[100px] before:z-[-1]">
+            MD ASLAM ALI
+            {/* <span
               className="xs:relative xs:text-deep-blue xs:font-semibold z-20 xs:before:content-brush
-              before:absolute before:-left-[25px] before:-top-[70px] before:z-[-1]"
+              before:absolute before:-left-[25px] before:-top-[100px] before:z-[-1]"
             >
-              ALI
-            </span>
+            
+            </span> */}
           </p>
 
-          <p className="mt-5 mb-7 text-xl text-center md:text-start">
-           WEB DEVELOPER
+          <p className="mt-5 mb-7 text-2xl text-center md:text-start z-[1]">
+           I AM A WEB DEVELOPER
           </p>
         </motion.div>
 
@@ -69,15 +70,6 @@ const Landing = ({ setSelectedPage }) => {
           >
             Contact Me
           </AnchorLink>
-          <div
-            className="rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5"
-            onClick={() => setSelectedPage("contact")}
-            href="#contact"
-          >
-            <div className="bg-deep-blue hover:text-red transition duration-500 w-full h-full flex items-center justify-center px-10 font-playfair">
-              <a href="/Aslam's_Resume.pdf" download>Download Resume</a>
-            </div>
-          </div>
         </motion.div>
 
         <motion.div
