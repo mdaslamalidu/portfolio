@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
-import ProjectImg from "../project1.jpeg";
-import UTrackerImg from "../project2.jpeg";
-import GreenCtgImg from "../project3.png";
-import CoinTrackerImg from "../project4.jpeg";
-import CavinImg from "../project5.jpeg";
+import ProjectImg from "../project-1.jpeg";
+import UTrackerImg from "../project-2.jpeg";
+import GreenCtgImg from "../project-3.png";
+import CoinTrackerImg from "../project-4.jpeg";
+import CavinImg from "../project-5.jpeg";
 
 const projects = [
   {

@@ -10,6 +10,7 @@ import useMediaQuery from "./hooks/useMediaQuery";
 import { useEffect, useState } from "react";
 import Testimonials from "./scenes/Testimonials";
 import { motion } from "framer-motion";
+import ProjectsSection from "./scenes/ProjectSection";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
@@ -58,7 +59,7 @@ function App() {
           amount="all"
           onViewportEnter={() => setSelectedPage("projects")}
         >
-          <Projects />
+          <Projects></Projects>
         </motion.div>
       </div>
       <LineGradient />
