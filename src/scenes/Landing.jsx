@@ -11,25 +11,14 @@ const Landing = ({ setSelectedPage }) => {
       className="md:flex md:justify-between md:items-center gap-16 md:h-full py-10"
     >
       {/* IMAGE SECTION */}
-      <div className="basis-3/5 z-10 mt-16 md:mt-32 flex justify-center md:order-2">
-        {isAboveLarge ? (
+      <div className="basis-3/5 z-10 md:mt-32 flex justify-center md:order-2">
           <div
-            className="relative z-0 ml-20 before:absolute before:-top-20 before:-left-20 before:rounded-t-[400px]
-            before:w-full before:max-w-[400px] md:before:max-w-[600px] before:h-full before:border-2 before:border-blue before:z-[-1]"
           >
             <img
               alt="profile"
-              className="hover:filter hover:saturate-200 transition duration-500 z-10 w-full max-w-[400px] md:max-w-[600px]"
-              src="assets/profile-image.png"
-            />
+              className="hover:filter hover:saturate-200 transition duration-500 z-10 w-full h-[450px] max-w-[400px] md:max-w-[600px] -mt-12"
+              src="assets/profile.png"/>
           </div>
-        ) : (
-          <img
-            alt="profile"
-            className="z-10 w-full max-w-[400px] md:max-w-[600px]"
-            src="assets/profile-image.png"
-          />
-        )}
       </div>
 
       {/* MAIN TEXT */}
@@ -45,19 +34,18 @@ const Landing = ({ setSelectedPage }) => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <p className="text-6xl font-playfair z-10 text-center md:text-start">
-            Jane {""}
+          <p className="text-4xl font-playfair z-10 text-center md:text-start">
+            MD ASLAM {""}
             <span
               className="xs:relative xs:text-deep-blue xs:font-semibold z-20 xs:before:content-brush
               before:absolute before:-left-[25px] before:-top-[70px] before:z-[-1]"
             >
-              Esper
+              ALI
             </span>
           </p>
 
-          <p className="mt-10 mb-7 text-sm text-center md:text-start">
-            Adipiscing arcu, in aliquam fringilla cursus. Elit arcu elementum
-            viverra malesuada sem ac faucibus dolor. Sagittis scelerisque.
+          <p className="mt-5 mb-7 text-xl text-center md:text-start">
+           WEB DEVELOPER
           </p>
         </motion.div>
 
@@ -81,15 +69,15 @@ const Landing = ({ setSelectedPage }) => {
           >
             Contact Me
           </AnchorLink>
-          <AnchorLink
+          <div
             className="rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5"
             onClick={() => setSelectedPage("contact")}
             href="#contact"
           >
             <div className="bg-deep-blue hover:text-red transition duration-500 w-full h-full flex items-center justify-center px-10 font-playfair">
-              Let's talk.
+              <a href="/Aslam's_Resume.pdf" download>Download Resume</a>
             </div>
-          </AnchorLink>
+          </div>
         </motion.div>
 
         <motion.div
