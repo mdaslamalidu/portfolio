@@ -15,17 +15,19 @@ const projectVariant = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const Project = ({ title, desc }) => {
+const Project = ({ title,name, desc }) => {
   const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90 transition duration-500
     bg-grey z-30 flex flex-col justify-center items-center text-center p-16 text-deep-blue`;
   const projectTitle = title.split(" ").join("-").toLowerCase();
   const details = desc;
+  const projecetName = name;
 
   return (
     <motion.div variants={projectVariant} className="relative">
       <div className={overlayStyles}>
         <p className="text-2xl font-playfair">{title}</p>
-        <p>{details}</p>
+        <p className="text-2xl font-bold">{projecetName}</p>
+        <p className="text-xl font-bold">{details}</p>
       </div>
       <img src={`../assets/${projectTitle}.jpeg`} alt={projectTitle} />
     </motion.div>
@@ -73,8 +75,8 @@ const Projects = () => {
           >
             BEAUTIFUL USER INTERFACES
           </div>
-          <Project title="Project 1" desc="sdfs" />
-          <Project title="Project 2" desc="dewe"/>
+          <Project title="Project 1" name="Donate Project" desc="Let's Helo Those who are more needed" />
+          <Project title="Project 2" name="Player Choice" desc="Choice Your Best Player"/>
 
           {/* ROW 2 */}
           {/* <Project title="Project 3" />
@@ -82,8 +84,8 @@ const Projects = () => {
           <Project title="Project 5" /> */}
 
           {/* ROW 3 */}
-          <Project title="Project 3" desc="dfasdf"/>
-          <Project title="Project 4" desc="dfsdf"/>
+          <Project title="Project 3" name="Courses" desc="All Courses you will get here"/>
+          <Project title="Project 4" name="Education" desc="Learning Managment for your carrier"/>
           <div
             className="flex justify-center text-center items-center p-10 bg-blue
               max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
