@@ -1,99 +1,61 @@
 import React from "react";
-// import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
-import "swiper/swiper-bundle.min.css";
-import projects from "../assets/data/project";
-import ProjectItem from "./ProjectItems";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
-// install Swiper modules
-SwiperCore.use([Navigation]);
+import "./ProjectSection.css";
 
-// const ProjectSectionStyle = styled.div`
-//   padding: 10rem 0;
-//   .projects__allItems {
-//     display: flex;
-//     gap: 3rem;
-//     margin-top: 5rem;
-//   }
-//   .swiper-container {
-//     padding-top: 8rem;
-//     max-width: 100%;
-//   }
-//   .swiper-button-prev,
-//   .swiper-button-next {
-//     position: absolute;
-//     height: 50px;
-//     width: 50px;
-//     background: var(--deep-dark);
-//     z-index: 10;
-//     right: 60px;
-//     left: auto;
-//     top: 0;
-//     transform: translateY(50%);
-//     color: var(--gray-1);
-//     border-radius: 8px;
-//   }
-//   .swiper-button-next {
-//     right: 0;
-//   }
-//   .swiper-button-prev::after,
-//   .swiper-button-next::after {
-//     font-size: 2rem;
-//   }
-//   @media only screen and (max-width: 768px) {
-//     .projects__allItems {
-//       flex-direction: column;
-//       max-width: 400px;
-//       margin: 0 auto;
-//       margin-top: 7rem;
-//       gap: 5rem;
-//       .projectItem__img {
-//         width: 100%;
-//       }
-//     }
-//   }
-// `;
+import  data  from "../assets/data/project";
 
-export default function ProjectsSection() {
-  // console.log(projects);
+import SwiperCore, { EffectCoverflow, Pagination } from "swiper/core";
+
+SwiperCore.use([EffectCoverflow, Pagination]);
+
+const ProjectSection = () => {
   return (
-      <div>
-        <h3>Projects</h3>
+    <section id="testimonials" className="main-testimonials-wrapper mt-24">
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 6,
+          slideShadows: true,
+        }}
+        // pagination={true}
+      >
         <div>
-          <Swiper
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation
-            breakpoints={{
-              // when window width is >= 640px
-              640: {
-                slidesPerView: 1,
-              },
-              // when window width is >= 768px
-              768: {
-                slidesPerView: 2,
-              },
-              // when window width is >= 1200px
-              1200: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {projects.map((project, index) => {
-              if (index >= 5) return;
-              return (
-                <SwiperSlide key={project.id}>
-                  <ProjectItem
-                    title={project.name}
-                    img={project.img}
-                    desc={project.desc}
-                  />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
+          {data.map((item, key) => (
+          <SwiperSlide>
+            <img src={item.img} alt={item.name} />
+            <h3 className="mt-5">{item.name}</h3>
+            <p className="my-5">{item.desc}</p>
+            {/* <a href="#">Live Site</a> */}
+            <div className="swiperLInk">
+              <a href="https://frolicking-gelato-5bd8e1.netlify.app/" target="_blank">Live Site</a>
+            <a href="#">Client Code</a>
+            <a href="#">Server Code</a>
+            </div>
+          </SwiperSlide>
+        ))}
+</div>
+      </Swiper>
+
+      <div className="quote-parent">
+        <div className="quote n-box1 flex-with-center">
+          <h1>Quote?!</h1>
+          <div className="quote-content">
+            <p>“ Knowledge is power.” </p>
+          </div>
         </div>
       </div>
+    </section>
   );
-}
+};
+
+export default ProjectSection;
