@@ -1,98 +1,65 @@
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+import "./ProjectSection.css";
+
+import  data  from "../assets/data/project";
+
+import SwiperCore, { EffectCoverflow, Pagination } from "swiper/core";
 import LineGradient from "../components/LineGradient";
-import { motion } from "framer-motion";
 
-const container = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const projectVariant = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1 },
-};
-
-const Project = ({ title,name, desc }) => {
-  const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90 transition duration-500
-    bg-grey z-30 flex flex-col justify-center items-center text-center p-16 text-deep-blue`;
-  const projectTitle = title.split(" ").join("-").toLowerCase();
-  const details = desc;
-  const projecetName = name;
-
-  return (
-    <motion.div variants={projectVariant} className="relative">
-      <div className={overlayStyles}>
-        <p className="text-2xl font-playfair">{title}</p>
-        <p className="text-2xl font-bold">{projecetName}</p>
-        <p className="text-xl font-bold">{details}</p>
-      </div>
-      <img src={`../assets/${projectTitle}.jpeg`} alt={projectTitle} />
-    </motion.div>
-  );
-};
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 const Projects = () => {
   return (
-    <section id="projects" className="pt-48 pb-48">
-      {/* HEADINGS */}
-      <motion.div
-        className="md:w-2/5 mx-auto text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.5 }}
-        variants={{
-          hidden: { opacity: 0, y: -50 },
-          visible: { opacity: 1, y: 0 },
-        }}
-      >
-        <div>
-          <p className="font-playfair font-semibold text-4xl">
+    <section id="projects" className="main-testimonials-wrapper mt-24">
+      <p className="font-playfair font-semibold text-4xl text-center">
             <span className="text-red">PRO</span>JECTS
           </p>
           <div className="flex justify-center my-5">
-            <LineGradient width="w-2/3" />
+            <LineGradient width="w-[120px]" />
+          </div>
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 6,
+          slideShadows: true,
+        }}
+        // pagination={true}
+      >
+        <div>
+          {data.map((item, key) => (
+          <SwiperSlide>
+            <img src={item.img} alt={item.name} />
+            <h3 className="mt-5">{item.name}</h3>
+            <p className="my-5">{item.desc}</p>
+            {/* <a href="#">Live Site</a> */}
+            <div className="swiperLInk">
+              <a href="https://frolicking-gelato-5bd8e1.netlify.app/" target="_blank">Live Site</a>
+            <a href="#">Client Code</a>
+            <a href="#">Server Code</a>
+            </div>
+          </SwiperSlide>
+        ))}
+</div>
+      </Swiper>
+
+      <div className="quote-parent">
+        <div className="quote n-box1 flex-with-center">
+          <h1>Quote?!</h1>
+          <div className="quote-content">
+            <p>“ Knowledge is power.” </p>
           </div>
         </div>
-      </motion.div>
-
-      {/* PROJECTS */}
-      <div className="flex justify-center">
-        <motion.div
-          className="sm:grid sm:grid-cols-3"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {/* ROW 1 */}
-          <div
-            className="flex justify-center text-center items-center p-10 bg-red
-              max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
-          >
-            BEAUTIFUL USER INTERFACES
-          </div>
-          <Project title="Project 1" name="Donate Project" desc="Let's Helo Those who are more needed" />
-          <Project title="Project 2" name="Player Choice" desc="Choice Your Best Player"/>
-
-          {/* ROW 2 */}
-          {/* <Project title="Project 3" />
-          <Project title="Project 4" />
-          <Project title="Project 5" /> */}
-
-          {/* ROW 3 */}
-          <Project title="Project 3" name="Courses" desc="All Courses you will get here"/>
-          <Project title="Project 4" name="Education" desc="Learning Managment for your carrier"/>
-          <div
-            className="flex justify-center text-center items-center p-10 bg-blue
-              max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
-          >
-            SMOOTH USER EXPERIENCE
-          </div>
-        </motion.div>
       </div>
     </section>
   );
