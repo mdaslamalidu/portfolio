@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ProjectsSection from "./scenes/Projects";
 import About from "./scenes/About";
+import Blog from "./scenes/Blog";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
@@ -64,13 +65,23 @@ function App() {
         </motion.div>
       </div>
       <LineGradient />
-      <div className="w-4/5 mx-auto">
+      <div className="w-5/6 mx-auto">
         <motion.div
           margin="0 0 -200px 0"
           amount="all"
           onViewportEnter={() => setSelectedPage("projects")}
         >
           <About></About>
+        </motion.div>
+      </div>
+      <LineGradient />
+      <div className="w-4/5 mx-auto">
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("projects")}
+        >
+          <Blog></Blog>
         </motion.div>
       </div>
       <LineGradient />

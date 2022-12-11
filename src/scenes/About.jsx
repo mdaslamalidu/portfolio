@@ -7,14 +7,15 @@ const About = () => {
     <section id="about" className="my-24">
       <>
         <div className="flex flex-col md:flex-row justify-around gap-4">
-          <div className="w-full md:w-1/3 bg-[#0A1929] rounded-lg shadow-xl">
-            <img className="h-[500px] rounded" src={myImg} alt="" />
+          <div className="w-full md:w-1/2 bg-[#0A1929] rounded-lg shadow-xl">
+            <img className="w-full  rounded" src={myImg} alt="" />
           </div>
-          <div className="w-full md:w-2/3">
+          <div className="w-full md:w-1/2">
             <div className="my-5">
               <p className="font-playfair font-semibold text-6xl my-4">
                 <span className="text-red">ABOUT </span>ME
               </p>
+
               <LineGradient className="text-center" width="w-[120px]" />
               <h2 className="text-[16px] font-bold my-6 text-justify">
                 This is MD Aslam Ali. I am a Full Stack Developer. I have
@@ -48,10 +49,17 @@ const About = () => {
                     {" "}
                     Courses
                   </h1>{" "}
-                  <h2 className="text-xl font-bold">
+                  <h2 className="text-xl font-bold mb-12">
                     Complete Web Development With Programming Hero
                   </h2>
                 </div>
+                <a
+                  className="border-2 border-gradient-rainblue px-4 py-2 hover:bg-gradient-rainblue"
+                  href="/Aslam's_Resume.pdf"
+                  download
+                >
+                  Download Resume
+                </a>
               </div>
             </div>
           </div>
